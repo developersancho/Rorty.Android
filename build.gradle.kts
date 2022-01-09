@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id(GradlePlugins.VersionCheck)
     id(GradlePlugins.CodeAnalyze)
@@ -11,15 +9,8 @@ tasks.named<Wrapper>("wrapper") {
     gradleVersion = "7.3.3"
 }
 
-tasks.withType(KotlinCompile::class.java).configureEach {
-    kotlinOptions {
-        allWarningsAsErrors = false
-        freeCompilerArgs = Configs.FreeCompilerArgs
-        jvmTarget = JavaVersion.VERSION_11.toString()
-    }
-}
-
-/*
+/**
+ *  commented for spotless plugin
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
 }
