@@ -24,16 +24,16 @@ abstract class CoreApplication<T : CoreConfig> :
     override fun onCreate() {
         super.onCreate()
         registerActivityLifecycleCallbacks(ActivityLifecycleCallback())
-        registerTimber()
+        //registerTimber()
     }
 
-    private fun registerTimber() {
-        if (appConfig().isDev()) {
-            Timber.plant(Timber.DebugTree())
-        } else {
-            Timber.plant(FireBaseCrashlyticsTree())
-        }
-    }
+//    private fun registerTimber() {
+//        if (appConfig().isDev()) {
+//            Timber.plant(Timber.DebugTree())
+//        } else {
+//            Timber.plant(FireBaseCrashlyticsTree())
+//        }
+//    }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         when (event) {
@@ -56,21 +56,6 @@ abstract class CoreApplication<T : CoreConfig> :
     }
 
     open fun handleSSLHandshakeException() {}
-
-    internal class FireBaseCrashlyticsTree : Timber.Tree() {
-        override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
-            when (priority) {
-                Log.VERBOSE, Log.DEBUG -> return
-            }
-            /**
-             * THROW FIREBASE CRASHLYTICS EXCEPTION
-             * **/
-            // val exception = t ?: Exception(message)
-//            Firebase.crashlytics.log(message)
-//            Firebase.crashlytics.setCustomKey(tag.toString(), message)
-//            Firebase.crashlytics.recordException(exception)
-        }
-    }
 
     private fun handleUncaughtException() {
         Thread.setDefaultUncaughtExceptionHandler { _, _ ->

@@ -4,7 +4,10 @@
  */
 package com.developersancho.rorty.di
 
+import com.developersancho.framework.core.base.application.AppInitializer
+import com.developersancho.framework.core.base.application.AppInitializerImpl
 import com.developersancho.framework.core.base.application.CoreConfig
+import com.developersancho.framework.core.base.application.TimberInitializer
 import com.developersancho.rorty.app.RortyApp
 import dagger.Module
 import dagger.Provides
@@ -25,5 +28,15 @@ class AppModule {
     @Singleton
     fun provideAppConfig(app: RortyApp): CoreConfig {
         return app.appConfig()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTimberInitializer() = TimberInitializer()
+
+    @Provides
+    @Singleton
+    fun provideAppInitializer(timberManager: TimberInitializer): AppInitializer {
+        return AppInitializerImpl(timberManager)
     }
 }
