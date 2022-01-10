@@ -4,6 +4,9 @@
  */
 package com.developersancho.framework.extensions
 
+import android.view.Window
+import android.view.WindowManager
+import androidx.annotation.ColorInt
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -56,4 +59,10 @@ inline fun Fragment.launchAndRepeatWithViewLifecycle(
             block()
         }
     }
+}
+
+fun Fragment.setStatusBarColor(@ColorInt color: Int) {
+    val window: Window = requireActivity().window
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+    window.statusBarColor = color
 }

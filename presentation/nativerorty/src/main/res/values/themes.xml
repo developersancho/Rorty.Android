@@ -26,6 +26,7 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="materialCardViewStyle">@style/MaterialCardViewStyle</item>
         <item name="materialButtonStyle">@style/MaterialButtonStyle.Red</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
     </style>
 
     <style name="TextView.Toolbar" parent="Widget.MaterialComponents.TextView">
@@ -84,5 +85,31 @@
         <item name="cornerRadius">16dp</item>
     </style>
 
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="colorPrimary">@color/blue_primary</item>
+        <item name="colorPrimaryVariant">@color/blue_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/blue_primary</item>
+        <item name="android:navigationBarColor" tools:targetApi="o">@color/blue_primary</item>
+    </style>
+
+    <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!--Remove any scrim insets applied by BottomNavigationView for system bars-->
+        <item name="insetForeground">@android:color/transparent</item>
+        <!--Set the background color of BottomNavigationView-->
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="elevation">0dp</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationViewTextStyle</item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationViewTextStyle</item>
+        <item name="itemTextColor">@color/bottom_nav_color_selector</item>
+        <item name="itemIconTint">@color/bottom_nav_color_selector</item>
+    </style>
+
+    <style name="BottomNavigationViewTextStyle">
+        <item name="android:fontFamily">@font/raleway_semi_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
 
 </resources>

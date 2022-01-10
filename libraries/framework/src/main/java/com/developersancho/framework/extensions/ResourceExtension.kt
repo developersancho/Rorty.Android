@@ -7,12 +7,14 @@ package com.developersancho.framework.extensions
 import android.content.res.Resources
 import android.util.DisplayMetrics
 
-val Int.dp: Float
-    get() {
-        if (this == 0) {
-            return 0f
-        }
+val Int.dp: Int
+    get() = (this / Resources.getSystem().displayMetrics.density).toInt()
 
-        val metrics = Resources.getSystem().displayMetrics
-        return this * (metrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
-    }
+val Float.dp: Int
+    get() = (this / Resources.getSystem().displayMetrics.density).toInt()
+
+val Int.px: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
+
+val Float.px: Int
+    get() = (this * Resources.getSystem().displayMetrics.density).toInt()
