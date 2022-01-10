@@ -111,6 +111,9 @@ class AppPlugin : Plugin<Project> {
             add("implementation", Deps.AndroidX.FragmentKtx)
 
             add("implementation", Deps.Timber)
+            add("implementation", Deps.Coil)
+            add("implementation", Deps.AndroidX.Paging)
+            add("implementation", Deps.AndroidX.SwipeRefreshLayout)
 
             add("testImplementation", Deps.Test.Junit)
             add("androidTestImplementation", Deps.Test.JunitExt)

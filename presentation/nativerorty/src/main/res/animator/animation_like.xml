@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+    <objectAnimator
+        android:duration="300"
+        android:interpolator="@android:anim/accelerate_interpolator">
+        <propertyValuesHolder
+            android:propertyName="rotation"
+            android:valueFrom="0"
+            android:valueTo="360" />
+        <propertyValuesHolder
+            android:propertyName="colorFilter"
+            android:valueFrom="#252424"
+            android:valueTo="#FFFF0000" />
+    </objectAnimator>
+    <objectAnimator
+        android:duration="300"
+        android:interpolator="@android:anim/overshoot_interpolator">
+        <propertyValuesHolder
+            android:propertyName="scaleX"
+            android:valueFrom="0.2"
+            android:valueTo="1" />
+        <propertyValuesHolder
+            android:propertyName="scaleY"
+            android:valueFrom="0.2"
+            android:valueTo="1" />
+    </objectAnimator>
+</set>

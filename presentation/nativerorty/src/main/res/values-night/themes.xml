@@ -26,6 +26,7 @@
         <item name="android:textViewStyle">@style/TextViewStyle</item>
         <item name="materialCardViewStyle">@style/MaterialCardViewStyle</item>
         <item name="materialButtonStyle">@style/MaterialButtonStyle.Red</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationViewStyle</item>
     </style>
 
     <style name="TextView.Toolbar" parent="Widget.MaterialComponents.TextView">

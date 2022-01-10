@@ -14,9 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Rorty">
+
         <activity
-            android:name=".features.main.MainActivity"
-            android:exported="true">
+            android:name=".features.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/SplashTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +36,10 @@
                     android:scheme="your-deeplink-scheme" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".features.main.MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
