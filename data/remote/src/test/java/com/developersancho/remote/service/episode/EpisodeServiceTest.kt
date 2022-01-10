@@ -8,7 +8,7 @@ import com.developersancho.remote.BuildConfig
 import com.developersancho.remote.service.EpisodeService
 import com.developersancho.remote.service.mock.MockResponses
 import com.developersancho.testutils.BaseServiceTest
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Test
 
@@ -21,7 +21,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
      * Get Episode List
      */
     @Test
-    fun requestLiveGetEpisodes() = runBlocking {
+    fun requestLiveGetEpisodes() = runTest {
         val response = serviceLive.getEpisodeList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
         Assert.assertEquals("Pilot", response.results?.first()?.name)
@@ -29,7 +29,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun requestGetEpisodes() = runBlocking {
+    fun requestGetEpisodes() = runTest {
         enqueueResponse(MockResponses.GetEpisodes.STATUS_200)
         serviceMock.getEpisodeList(page = 1, options = hashMapOf())
         val request = mockWebServer.takeRequest()
@@ -38,7 +38,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun responseGetEpisodes() = runBlocking {
+    fun responseGetEpisodes() = runTest {
         enqueueResponse(MockResponses.GetEpisodes.STATUS_200)
         val response = serviceMock.getEpisodeList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
@@ -50,7 +50,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
      * Get Episode List by Filter
      */
     @Test
-    fun requestLiveGetEpisodesByFilter() = runBlocking {
+    fun requestLiveGetEpisodesByFilter() = runTest {
         val response = serviceLive.getEpisodeList(
             page = 1,
             options = hashMapOf(
@@ -63,7 +63,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun requestGetEpisodesByFilter() = runBlocking {
+    fun requestGetEpisodesByFilter() = runTest {
         enqueueResponse(MockResponses.GetEpisodesByFilter.STATUS_200)
         serviceMock.getEpisodeList(
             page = 1,
@@ -77,7 +77,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun responseGetEpisodesByFilter() = runBlocking {
+    fun responseGetEpisodesByFilter() = runTest {
         enqueueResponse(MockResponses.GetEpisodesByFilter.STATUS_200)
         val response = serviceMock.getEpisodeList(
             page = 1,
@@ -94,7 +94,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
      * Get Episode
      */
     @Test
-    fun requestLiveGetEpisode() = runBlocking {
+    fun requestLiveGetEpisode() = runTest {
         val response = serviceLive.getEpisode(episodeId = 1)
         Assert.assertEquals(1, response.id)
         Assert.assertEquals("Pilot", response.name)
@@ -102,7 +102,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun requestGetEpisode() = runBlocking {
+    fun requestGetEpisode() = runTest {
         enqueueResponse(MockResponses.GetEpisode.STATUS_200)
         serviceMock.getEpisode(episodeId = 1)
         val request = mockWebServer.takeRequest()
@@ -111,7 +111,7 @@ class EpisodeServiceTest : BaseServiceTest<EpisodeService>(EpisodeService::class
     }
 
     @Test
-    fun responseGetEpisode() = runBlocking {
+    fun responseGetEpisode() = runTest {
         enqueueResponse(MockResponses.GetEpisode.STATUS_200)
         val response = serviceMock.getEpisode(episodeId = 1)
         Assert.assertEquals(1, response.id)

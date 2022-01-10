@@ -8,20 +8,20 @@ import android.content.Context
 import com.developersancho.local.BuildConfig
 import com.developersancho.local.dao.FavoriteDao
 import com.developersancho.local.db.RortyDatabase
+import com.developersancho.testutils.MockkUnitTest
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Assert
 import org.junit.Assert.assertEquals
-import org.junit.Before
 import org.junit.Test
 
-class LocalModuleTest {
+class LocalModuleTest: MockkUnitTest() {
 
     private lateinit var localModule: LocalModule
 
-    @Before
-    fun setUp() {
+    override fun onCreate() {
+        super.onCreate()
         localModule = LocalModule()
     }
 

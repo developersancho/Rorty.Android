@@ -9,7 +9,7 @@ import com.developersancho.remote.BuildConfig
 import com.developersancho.remote.service.CharacterService
 import com.developersancho.remote.service.mock.MockResponses
 import com.developersancho.testutils.BaseServiceTest
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Test
 
@@ -22,7 +22,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
      * Get Character List
      */
     @Test
-    fun requestLiveGetCharacters() = runBlocking {
+    fun requestLiveGetCharacters() = runTest {
         val response = serviceLive.getCharacterList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
         Assert.assertEquals("Rick Sanchez", response.results?.first()?.name)
@@ -31,7 +31,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun requestGetCharacters() = runBlocking {
+    fun requestGetCharacters() = runTest {
         enqueueResponse(MockResponses.GetCharacters.STATUS_200)
         serviceMock.getCharacterList(page = 1, options = hashMapOf())
         val request = mockWebServer.takeRequest()
@@ -40,7 +40,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun responseGetCharacters() = runBlocking {
+    fun responseGetCharacters() = runTest {
         enqueueResponse(MockResponses.GetCharacters.STATUS_200)
         val response = serviceMock.getCharacterList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
@@ -53,7 +53,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
      * Get Character List by Filter
      */
     @Test
-    fun requestLiveGetCharactersByFilter() = runBlocking {
+    fun requestLiveGetCharactersByFilter() = runTest {
         val response = serviceLive.getCharacterList(
             page = 1,
             options = hashMapOf(
@@ -68,7 +68,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun requestGetCharactersByFilter() = runBlocking {
+    fun requestGetCharactersByFilter() = runTest {
         enqueueResponse(MockResponses.GetCharactersByFilter.STATUS_200)
         serviceMock.getCharacterList(
             page = 1,
@@ -83,7 +83,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun responseGetCharactersByFilter() = runBlocking {
+    fun responseGetCharactersByFilter() = runTest {
         enqueueResponse(MockResponses.GetCharactersByFilter.STATUS_200)
         val response = serviceMock.getCharacterList(
             page = 1,
@@ -102,7 +102,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
      * Get Character
      */
     @Test
-    fun requestLiveGetCharacter() = runBlocking {
+    fun requestLiveGetCharacter() = runTest {
         val response = serviceLive.getCharacter(characterId = 1)
         Assert.assertEquals(1, response.id)
         Assert.assertEquals("Rick Sanchez", response.name)
@@ -111,7 +111,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun requestGetCharacter() = runBlocking {
+    fun requestGetCharacter() = runTest {
         enqueueResponse(MockResponses.GetCharacter.STATUS_200)
         serviceMock.getCharacter(characterId = 1)
         val request = mockWebServer.takeRequest()
@@ -120,7 +120,7 @@ class CharacterServiceTest : BaseServiceTest<CharacterService>(CharacterService:
     }
 
     @Test
-    fun responseGetCharacter() = runBlocking {
+    fun responseGetCharacter() = runTest {
         enqueueResponse(MockResponses.GetCharacter.STATUS_200)
         val response = serviceMock.getCharacter(characterId = 1)
         Assert.assertEquals(1, response.id)

@@ -14,6 +14,7 @@ import okio.buffer
 import okio.source
 import org.junit.After
 import org.junit.Before
+import org.junit.Rule
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import kotlin.reflect.KClass
@@ -23,6 +24,9 @@ abstract class BaseServiceTest<S : Any>(service: KClass<S>) {
     lateinit var mockWebServer: MockWebServer
     private lateinit var moshi: Moshi
     private lateinit var okhttp: OkHttpClient
+
+    @get:Rule
+    var testCoroutineRule = TestCoroutineRule()
 
     abstract val baseUrl: String
 

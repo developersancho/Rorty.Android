@@ -8,7 +8,7 @@ import com.developersancho.remote.BuildConfig
 import com.developersancho.remote.service.LocationService
 import com.developersancho.remote.service.mock.MockResponses
 import com.developersancho.testutils.BaseServiceTest
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert
 import org.junit.Test
 
@@ -21,7 +21,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
      * Get Location List
      */
     @Test
-    fun requestLiveGetLocations() = runBlocking {
+    fun requestLiveGetLocations() = runTest {
         val response = serviceLive.getLocationList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
         Assert.assertEquals("Earth (C-137)", response.results?.first()?.name)
@@ -29,7 +29,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun requestGetLocations() = runBlocking {
+    fun requestGetLocations() = runTest {
         enqueueResponse(MockResponses.GetLocations.STATUS_200)
         serviceMock.getLocationList(page = 1, options = hashMapOf())
         val request = mockWebServer.takeRequest()
@@ -38,7 +38,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun responseGetLocations() = runBlocking {
+    fun responseGetLocations() = runTest {
         enqueueResponse(MockResponses.GetLocations.STATUS_200)
         val response = serviceMock.getLocationList(page = 1, options = hashMapOf())
         Assert.assertEquals(1, response.results?.first()?.id)
@@ -50,7 +50,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
      * Get Location List by Filter
      */
     @Test
-    fun requestLiveGetLocationsByFilter() = runBlocking {
+    fun requestLiveGetLocationsByFilter() = runTest {
         val response = serviceLive.getLocationList(
             page = 1,
             options = hashMapOf(
@@ -63,7 +63,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun requestGetLocationsByFilter() = runBlocking {
+    fun requestGetLocationsByFilter() = runTest {
         enqueueResponse(MockResponses.GetLocationsByFilter.STATUS_200)
         serviceMock.getLocationList(
             page = 1,
@@ -77,7 +77,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun responseGetEpisodesByFilter() = runBlocking {
+    fun responseGetEpisodesByFilter() = runTest {
         enqueueResponse(MockResponses.GetLocationsByFilter.STATUS_200)
         val response = serviceMock.getLocationList(
             page = 1,
@@ -94,7 +94,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
      * Get Location
      */
     @Test
-    fun requestLiveGetLocation() = runBlocking {
+    fun requestLiveGetLocation() = runTest {
         val response = serviceLive.getLocation(locationId = 1)
         Assert.assertEquals(1, response.id)
         Assert.assertEquals("Earth (C-137)", response.name)
@@ -102,7 +102,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun requestGetLocation() = runBlocking {
+    fun requestGetLocation() = runTest {
         enqueueResponse(MockResponses.GetLocation.STATUS_200)
         serviceMock.getLocation(locationId = 1)
         val request = mockWebServer.takeRequest()
@@ -111,7 +111,7 @@ class LocationServiceTest : BaseServiceTest<LocationService>(LocationService::cl
     }
 
     @Test
-    fun responseGetLocation() = runBlocking {
+    fun responseGetLocation() = runTest {
         enqueueResponse(MockResponses.GetLocation.STATUS_200)
         val response = serviceMock.getLocation(locationId = 1)
         Assert.assertEquals(1, response.id)

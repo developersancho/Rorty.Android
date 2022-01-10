@@ -9,7 +9,7 @@ import com.developersancho.local.db.RortyDatabase
 import com.developersancho.model.local.FavoriteEntity
 import com.developersancho.model.remote.base.Status
 import com.developersancho.testutils.TestRobolectric
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.hamcrest.CoreMatchers
 import org.hamcrest.MatcherAssert
 import org.junit.Assert
@@ -63,7 +63,7 @@ class FavoriteDaoTest : TestRobolectric() {
 
     override fun onCreate() {
         super.onCreate()
-        runBlocking {
+        runTest {
             database = Room
                 .inMemoryDatabaseBuilder(context, RortyDatabase::class.java)
                 .allowMainThreadQueries()
@@ -79,46 +79,46 @@ class FavoriteDaoTest : TestRobolectric() {
     }
 
     @Test
-    fun getFavoriteList_WithData() = runBlocking {
+    fun getFavoriteList_WithData() = runTest {
         favoriteDao.insert(fakeFavorite)
         val favorites = favoriteDao.getFavoriteList()
         Assert.assertEquals(fakeFavorite, favorites)
     }
 
     @Test
-    fun getFavoriteList_WithoutData() = runBlocking {
+    fun getFavoriteList_WithoutData() = runTest {
         val favorites = favoriteDao.getFavoriteList()
         Assert.assertTrue(favorites.isNullOrEmpty())
     }
 
     @Test
-    fun getFavoriteList_WithData_ShouldReturnSorted() = runBlocking {
+    fun getFavoriteList_WithData_ShouldReturnSorted() = runTest {
         favoriteDao.insert(fakeFavorite)
         Assert.assertEquals(fakeFavorite, favoriteDao.getFavoriteList())
     }
 
     @Test
-    fun getFavoriteById_WithoutData_ShouldNotFound() = runBlocking {
+    fun getFavoriteById_WithoutData_ShouldNotFound() = runTest {
         val favoriteToFind = fakeFavorite.first()
         Assert.assertNull(favoriteDao.getFavorite(favoriteToFind.id))
     }
 
     @Test
-    fun getFavoriteById_WithData_ShouldFound() = runBlocking {
+    fun getFavoriteById_WithData_ShouldFound() = runTest {
         favoriteDao.insert(fakeFavorite)
         val favoriteToFind = fakeFavorite.first()
         Assert.assertEquals(favoriteToFind, favoriteDao.getFavorite(favoriteToFind.id))
     }
 
     @Test
-    fun insertFavorite_ShouldAdd() = runBlocking {
+    fun insertFavorite_ShouldAdd() = runTest {
         fakeFavorite.forEach { favoriteDao.insert(it) }
 
         Assert.assertEquals(fakeFavorite, favoriteDao.getFavoriteList())
     }
 
     @Test
-    fun deleteFavoriteList_ShouldRemoveAll() = runBlocking {
+    fun deleteFavoriteList_ShouldRemoveAll() = runTest {
         favoriteDao.insert(fakeFavorite)
         favoriteDao.deleteFavoriteList()
 
@@ -126,7 +126,7 @@ class FavoriteDaoTest : TestRobolectric() {
     }
 
     @Test
-    fun deleteFavorite_Stored_ShouldRemoveIt() = runBlocking {
+    fun deleteFavorite_Stored_ShouldRemoveIt() = runTest {
         favoriteDao.insert(fakeFavorite)
 
         val favoriteToRemove = fakeFavorite.first()
@@ -139,7 +139,7 @@ class FavoriteDaoTest : TestRobolectric() {
     }
 
     @Test
-    fun deleteFavorite_NoStored_ShouldNotRemoveNothing() = runBlocking {
+    fun deleteFavorite_NoStored_ShouldNotRemoveNothing() = runTest {
         favoriteDao.insert(fakeFavorite)
 
         val favoriteToRemove = FavoriteEntity(
@@ -160,7 +160,7 @@ class FavoriteDaoTest : TestRobolectric() {
     }
 
     @Test
-    fun deleteFavoriteById_Stored_ShouldRemoveIt() = runBlocking {
+    fun deleteFavoriteById_Stored_ShouldRemoveIt() = runTest {
         favoriteDao.insert(fakeFavorite)
 
         val favoriteToRemove = fakeFavorite.first()
@@ -173,7 +173,7 @@ class FavoriteDaoTest : TestRobolectric() {
     }
 
     @Test
-    fun deleteFavoriteById_NoStored_ShouldNotRemoveNothing() = runBlocking {
+    fun deleteFavoriteById_NoStored_ShouldNotRemoveNothing() = runTest {
         favoriteDao.insert(fakeFavorite)
 
         val favoriteNoStoredId = 100

@@ -12,6 +12,7 @@ import com.developersancho.remote.BuildConfig
 import com.developersancho.remote.service.CharacterService
 import com.developersancho.remote.service.EpisodeService
 import com.developersancho.remote.service.LocationService
+import com.developersancho.testutils.MockkUnitTest
 import com.google.common.truth.Truth
 import com.squareup.moshi.Moshi
 import io.mockk.every
@@ -21,17 +22,16 @@ import io.mockk.verify
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Test
 import retrofit2.Retrofit
 
-class RemoteModuleTest {
+class RemoteModuleTest: MockkUnitTest() {
 
     private lateinit var remoteModule: RemoteModule
     private lateinit var appConfig: CoreConfig
 
-    @Before
-    fun setUp() {
+    override fun onCreate() {
+        super.onCreate()
         appConfig = object : CoreConfig() {
             override fun appName(): String = "Remote Module"
             override fun environment(): CoreEnvironment = CoreEnvironment.DEV
