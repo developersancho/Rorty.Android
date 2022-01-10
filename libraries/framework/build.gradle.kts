@@ -23,6 +23,9 @@ dependencies {
     implementation(Deps.SecurityCrypto)
     implementation(Deps.Room.Base)
 
+    implementation(Deps.AndroidX.ActivityKtx)
+    implementation(Deps.AndroidX.FragmentKtx)
+
     testImplementation(Deps.Test.Junit)
     androidTestImplementation(Deps.Test.JunitExt)
     androidTestImplementation(Deps.Test.EspressoCore)

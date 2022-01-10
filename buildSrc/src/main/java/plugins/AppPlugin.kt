@@ -106,6 +106,9 @@ class AppPlugin : Plugin<Project> {
             add("implementation", Deps.Hilt.Android)
             add("kapt", Deps.Hilt.AndroidCompiler)
 
+            add("implementation", Deps.AndroidX.ActivityKtx)
+            add("implementation", Deps.AndroidX.FragmentKtx)
+
             add("implementation", Deps.Timber)
 
             add("testImplementation", Deps.Test.Junit)

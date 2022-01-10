@@ -9,6 +9,11 @@ import com.developersancho.framework.core.base.application.CoreApplication
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
+/**
+ * When using Hilt, the Application class must
+ * be annotated with @HiltAndroidApp for kick
+ * off the code generation.
+ */
 @HiltAndroidApp
 class RortyApp : CoreApplication<RortyAppConfig>() {
 
