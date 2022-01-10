@@ -7,6 +7,7 @@ object Deps {
         const val Activity = "androidx.activity:activity-compose:${Versions.ComposeActivity}"
         const val Junit4 = "androidx.compose.ui:ui-test-junit4:${Versions.Compose}"
         const val UiTooling = "androidx.compose.ui:ui-tooling:${Versions.Compose}"
+        const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-compose:${Versions.Lifecycle}"
     }
 
     object AndroidX {
@@ -25,6 +26,7 @@ object Deps {
 
     object Lifecycle {
         const val ViewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Lifecycle}"
+        const val LiveData = "androidx.lifecycle:lifecycle-livedata-ktx:${Versions.Lifecycle}"
         const val Runtime = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Lifecycle}"
     }
 
@@ -88,6 +90,7 @@ object Deps {
         const val Fragment = "androidx.fragment:fragment-testing:${Versions.FragmentTest}"
         const val Truth = "com.google.truth:truth:${Versions.Truth}"
         const val Jupiter = "org.junit.jupiter:junit-jupiter-api:${Versions.Jupiter}"
+        const val LiveData = "androidx.arch.core:core-testing:${Versions.Arch}"
     }
 
     const val Coil = "io.coil-kt:coil:${Versions.Coil}"

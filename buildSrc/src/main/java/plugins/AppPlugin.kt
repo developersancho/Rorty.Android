@@ -102,9 +102,13 @@ class AppPlugin : Plugin<Project> {
 
             add("implementation", Deps.Lifecycle.ViewModel)
             add("implementation", Deps.Lifecycle.Runtime)
+            add("implementation", Deps.Lifecycle.LiveData)
 
             add("implementation", Deps.Hilt.Android)
             add("kapt", Deps.Hilt.AndroidCompiler)
+
+            add("implementation", Deps.AndroidX.ActivityKtx)
+            add("implementation", Deps.AndroidX.FragmentKtx)
 
             add("implementation", Deps.Timber)
 

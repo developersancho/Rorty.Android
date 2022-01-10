@@ -12,6 +12,6 @@ tasks.named<Wrapper>("wrapper") {
 /**
  *  commented for spotless plugin
 tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+ delete(rootProject.buildDir)
 }
 */

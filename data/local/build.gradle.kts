@@ -15,6 +15,9 @@ dependencies {
     implementation(Deps.Hilt.Android)
     kapt(Deps.Hilt.AndroidCompiler)
 
+    implementation(Deps.Coroutine.Core)
+    implementation(Deps.Coroutine.Android)
+
     testImplementation(Deps.Test.Junit)
     androidTestImplementation(Deps.Test.JunitExt)
     androidTestImplementation(Deps.Test.EspressoCore)

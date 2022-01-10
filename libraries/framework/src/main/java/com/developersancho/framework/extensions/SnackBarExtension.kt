@@ -6,6 +6,7 @@ package com.developersancho.framework.extensions
 
 import android.app.Activity
 import android.view.View
+import android.view.ViewGroup
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
@@ -26,4 +27,19 @@ fun Activity.showSnackBar(view: View, message: String, @IdRes targetViewId: Int?
         }
         show()
     }
+}
+
+fun Snackbar.setMarginBottom(
+    marginBottom: Int
+) {
+    val snackbarView = view
+    val params = view.layoutParams as ViewGroup.MarginLayoutParams
+    params.setMargins(
+        params.leftMargin,
+        params.topMargin,
+        params.rightMargin,
+        marginBottom
+    )
+
+    snackbarView.layoutParams = params
 }
