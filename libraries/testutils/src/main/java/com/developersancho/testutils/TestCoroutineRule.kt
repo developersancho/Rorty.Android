@@ -12,7 +12,7 @@ import org.junit.runners.model.Statement
 
 class TestCoroutineRule : TestRule {
 
-    private val testCoroutineDispatcher = StandardTestDispatcher()
+    private val testCoroutineDispatcher = UnconfinedTestDispatcher()
 
     val testCoroutineScope = TestScope(testCoroutineDispatcher)
 

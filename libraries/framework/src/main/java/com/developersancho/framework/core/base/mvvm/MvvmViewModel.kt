@@ -55,7 +55,7 @@ open class MvvmViewModel : ViewModel() {
 
     protected suspend fun <T> call(
         callFlow: Flow<T>,
-        completionHandler: (collect: T) -> Unit
+        completionHandler: (collect: T) -> Unit = {}
     ) {
         callFlow
             .catch { passError(throwable = it) }
@@ -66,7 +66,7 @@ open class MvvmViewModel : ViewModel() {
 
     protected suspend fun <T> callWithProgress(
         callFlow: Flow<T>,
-        completionHandler: (collect: T) -> Unit
+        completionHandler: (collect: T) -> Unit= {}
     ) {
         callFlow
             .onStart { showProgress() }
@@ -79,7 +79,7 @@ open class MvvmViewModel : ViewModel() {
 
     protected suspend fun <T> execute(
         callFlow: Flow<DataState<T>>,
-        completionHandler: (collect: T) -> Unit
+        completionHandler: (collect: T) -> Unit= {}
     ) {
         callFlow
             .catch { passError(throwable = it) }
@@ -95,7 +95,7 @@ open class MvvmViewModel : ViewModel() {
 
     protected suspend fun <T> executeWithProgress(
         callFlow: Flow<DataState<T>>,
-        completionHandler: (collect: T) -> Unit
+        completionHandler: (collect: T) -> Unit= {}
     ) {
         callFlow
             .onStart { showProgress() }
