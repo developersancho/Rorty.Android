@@ -9,6 +9,7 @@ dependencies {
     implementation(project(Modules.Framework))
     testImplementation(project(Modules.TestUtils))
 
+    implementation(Deps.Moshi.Kotlin)
     implementation(Deps.Retrofit.Base)
     implementation(Deps.Retrofit.Moshi)
     implementation(Deps.Okhttp.Base)
@@ -20,6 +21,9 @@ dependencies {
     kapt(Deps.Hilt.AndroidCompiler)
 
     implementation(Deps.Timber)
+
+    implementation(Deps.Coroutine.Core)
+    implementation(Deps.Coroutine.Android)
 
     testImplementation(Deps.Test.Junit)
     androidTestImplementation(Deps.Test.JunitExt)

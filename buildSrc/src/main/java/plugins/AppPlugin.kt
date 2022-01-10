@@ -102,6 +102,7 @@ class AppPlugin : Plugin<Project> {
 
             add("implementation", Deps.Lifecycle.ViewModel)
             add("implementation", Deps.Lifecycle.Runtime)
+            add("implementation", Deps.Lifecycle.LiveData)
 
             add("implementation", Deps.Hilt.Android)
             add("kapt", Deps.Hilt.AndroidCompiler)

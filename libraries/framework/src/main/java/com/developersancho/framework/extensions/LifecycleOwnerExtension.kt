@@ -7,7 +7,6 @@ package com.developersancho.framework.extensions
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 fun <T> LifecycleOwner.observeFlow(property: Flow<T>, block: (T) -> Unit) {
@@ -25,14 +24,14 @@ fun <T> LifecycleOwner.observeFlowStart(property: Flow<T>, block: (T) -> Unit) {
 }
 
 fun <T> LifecycleOwner.observeLiveData(liveData: LiveData<T>, block: (T) -> Unit) {
-    liveData.observe(this, onChanged = { block(it) })
+    liveData.observe(this, Observer { block(it) })
 }
 
 fun <T : Any, L : MutableLiveData<T>> LifecycleOwner.observeLiveData(
     liveData: L,
     block: (T) -> Unit
 ) {
-    liveData.observe(this, onChanged = { block(it) })
+    liveData.observe(this, Observer { block(it) })
 }
 
 fun LifecycleOwner.repeatOnStared(block: suspend CoroutineScope.() -> Unit) {

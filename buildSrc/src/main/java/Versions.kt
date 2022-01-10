@@ -12,6 +12,7 @@ object Versions {
     const val FragmentKtx = "1.4.0"
     const val Paging = "3.1.0"
     const val Lifecycle = "2.4.0"
+    const val Arch = "2.1.0"
     const val Moshi = "1.12.0"
     const val MoshiLazy = "2.2"
     const val Retrofit = "2.9.0"

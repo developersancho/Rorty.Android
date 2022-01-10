@@ -16,10 +16,12 @@ dependencies {
     implementation(Deps.AndroidX.Paging)
 
     implementation(Deps.Lifecycle.ViewModel)
+    implementation(Deps.Lifecycle.LiveData)
     implementation(Deps.Lifecycle.Runtime)
     implementation(Deps.Moshi.Kotlin)
     implementation(Deps.Timber)
     implementation(Deps.Retrofit.Base)
+    implementation(Deps.Okhttp.Base)
     implementation(Deps.SecurityCrypto)
     implementation(Deps.Room.Base)
 

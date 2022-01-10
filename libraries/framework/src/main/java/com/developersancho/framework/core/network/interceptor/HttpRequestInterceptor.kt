@@ -1,4 +1,4 @@
-package com.developersancho.remote
+package com.developersancho.framework.core.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

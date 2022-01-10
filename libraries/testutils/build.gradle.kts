@@ -24,4 +24,5 @@ dependencies {
     api(Deps.Test.Fragment)
     api(Deps.Test.Truth)
     api(Deps.Test.Jupiter)
+    api(Deps.Test.LiveData)
 }
