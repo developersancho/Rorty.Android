@@ -38,7 +38,7 @@ gradlePlugin {
 
 object Versions {
     const val GRADLE = "7.1.0-rc01"
-    const val KOTLIN = "1.6.0"
+    const val KOTLIN = "1.6.10"
     const val HILT = "2.40.5"
     const val VERSION_CHECKER = "0.39.0"
     const val KTLINT = "10.2.0"
