@@ -9,15 +9,21 @@ repositories {
     gradlePluginPortal()
 }
 
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
 gradlePlugin {
     plugins {
         register("AppPlugin") {
             id = "AppPlugin"
             implementationClass = "plugins.AppPlugin"
-        }
-        register("AppComposePlugin") {
-            id = "AppComposePlugin"
-            implementationClass = "plugins.AppComposePlugin"
         }
         register("AndroidLibraryPlugin") {
             id = "AndroidLibraryPlugin"
