@@ -20,8 +20,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "Rorty.Android"
 include(
-    ":presentation:composerorty",
-    ":presentation:nativerorty",
+    ":app",
     ":data:model",
     ":data:local",
     ":data:remote",
