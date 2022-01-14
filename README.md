@@ -109,7 +109,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Moshi](https://github.com/square/moshi) - A modern JSON library for Kotlin and Java.
 - [Chucker](https://github.com/ChuckerTeam/chucker) - An HTTP inspector for Android & OkHTTP (like Charles but on device).
 - [Coil](https://github.com/coil-kt/coil) - Image loading for Android backed by Kotlin Coroutines.
-- [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/migrating_from_groovy_to_kotlin_dsl.html) - Image loading for Android backed by Kotlin Coroutines.
+- [Gradle Kotlin DSL](https://gradle.org/kotlin/) - makes it easy to manage dependency all module that we have
 
 - [Test](https://en.wikipedia.org/wiki/Unit_testing)
   
