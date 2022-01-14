@@ -39,9 +39,9 @@ The circles represent different layers of your app. Note that:
 <p align="center"><img src="art/architecture.png" alt="Clean Architecture Diagram"></p>
 
 ### Why Clean Architecture?
-- Loose coupling between the code - The code can easily be modified without affecting any or a large part of the app's codebase thus easier to scale the application later on.
-- Easier to test code.
-- Separation of Concern - Different modules have specific responsibilities making it easier for modification and maintenance.
+- ```Loose coupling between the code``` - The code can easily be modified without affecting any or a large part of the app's codebase thus easier to scale the application later on.
+- Easier to ```test``` code.
+- ```Separation of Concern``` - Different modules have specific responsibilities making it easier for modification and maintenance.
 
 ### S.O.L.I.D Principles
 
@@ -129,7 +129,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin.
 
 ## Project Structure
-<p align="center"><img src="art/project.png" alt="Project Structure"></p>
+<p align="center"><img src="art/project.png" alt="Project Structure" width="350"></p>
 
 ## Demo Screenshots
 
