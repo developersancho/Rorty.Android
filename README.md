@@ -129,7 +129,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin.
 
 ## Project Structure
-<p align="center"><img src="art/project.png" alt="Project Structure" width="350"></p>
+<p align="center"><img src="art/project.png" alt="Project Structure" width="500"></p>
 
 ## Demo Screenshots
 
