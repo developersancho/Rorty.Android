@@ -21,7 +21,7 @@ An android app built using Kotlin that consumes [Rick and Morty API](https://ric
 
 ## Environment Setup
 
-In order to be able to build the application you'll need Android Studio Minimum version Bumblebee (2021.1.1) RC 1
+In order to be able to build the application you'll need Android Studio Minimum version ```Bumblebee (2021.1.1) RC 1```
 
 ## Architecture
 A well planned architecture is extremely important for an app to scale and all architectures have one common goal- to manage complexity of your app. This isn't something to be worried about in smaller apps however it may prove very useful when working on apps with longer development lifecycle and a bigger team.
@@ -57,6 +57,9 @@ The circles represent different layers of your app. Note that:
 
 ## Layers
 
+### Project Structure
+<p align="center"><img src="art/project.png" alt="Project Structure" width="500"></p>
+
 ### 1. Data
 The ```data``` layer is responsible for selecting the proper data source for the domain layer. It contains the implementations of the repositories declared in the domain layer.
 
@@ -84,11 +87,23 @@ Components of domain layer include:
 ### 3. Presentation
 The ```app``` layer contains components involved in showing information to the user. The main part of this layer are the views(activity, fragment) and ViewModels.
 
+## Demo Screenshots
+
+| Mode  | Splash                                                   | Characters                                                 | Character Favorite                                        |
+|-------|----------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------|
+| Light | <img src="art/screenshots/splash.png" width="250">       | <img src="art/screenshots/characters.png" width="250">     | <img src="art/screenshots/favorites.png" width="250">     |
+| Dark  | <img src="art/screenshots/splash.png" width="250">       | <img src="art/screenshots/characters-dark.png" width="250">| <img src="art/screenshots/favorites-dark.png" width="250">|
+
+| Mode  | Character Detail                                         | Settings                                                   |
+|-------|----------------------------------------------------------|------------------------------------------------------------|
+| Light | <img src="art/screenshots/detail.png" width="250">       | <img src="art/screenshots/settings.png" width="250">       |
+| Dark  | <img src="art/screenshots/detail-dark.png" width="250">  | <img src="art/screenshots/settings-dark.png" width="250">  |
+
 # Tech Stacks
 This project uses many of the popular libraries, plugins and tools of the android ecosystem.
 
 - [Jetpack](https://developer.android.com/jetpack)
-  
+
   - [Android KTX](https://developer.android.com/kotlin/ktx.html) - Provide concise, idiomatic Kotlin to Jetpack and Android platform APIs.
   - [AndroidX](https://developer.android.com/jetpack/androidx) - Major improvement to the original Android [Support Library](https://developer.android.com/topic/libraries/support-library/index), which is no longer maintained.
   - [Lifecycle](https://developer.android.com/topic/libraries/architecture/lifecycle) - Perform actions in response to a change in the lifecycle status of another component, such as activities and fragments.
@@ -112,7 +127,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Gradle Kotlin DSL](https://gradle.org/kotlin/) - makes it easy to manage dependency all module that we have
 
 - [Test](https://en.wikipedia.org/wiki/Unit_testing)
-  
+
   - [Robolectric](http://robolectric.org/) - Running tests on an Android emulator or device is slow! Building, deploying, and launching the app often takes a minute or more. That’s no way to do TDD. There must be a better way.
   - [Mockk](https://mockk.io/) - A modern Mockk library for UnitTest.
   - [Turbine](https://github.com/cashapp/turbine) - Turbine is a small testing library for kotlinx.coroutines Flow.
@@ -127,21 +142,6 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Ktlint](https://github.com/jlleitschuh/ktlint-gradle) - A ktlint gradle plugin. Provides a convenient wrapper plugin over the ktlint project.
 - [Spotless](https://github.com/diffplug/spotless) - It’s pretty useful in automating fixes for pretty simple (and common) formatting mistakes as in spaces, newlines, removing unnecessary imports, etc.
 - [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin.
-
-## Project Structure
-<p align="center"><img src="art/project.png" alt="Project Structure" width="500"></p>
-
-## Demo Screenshots
-
-| Mode  | Splash                                                   | Characters                                                 | Character Favorite                                        |
-|-------|----------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------|
-| Light | <img src="art/screenshots/splash.png" width="250">       | <img src="art/screenshots/characters.png" width="250">     | <img src="art/screenshots/favorites.png" width="250">     |
-| Dark  | <img src="art/screenshots/splash.png" width="250">       | <img src="art/screenshots/characters-dark.png" width="250">| <img src="art/screenshots/favorites-dark.png" width="250">|
-
-| Mode  | Character Detail                                         | Settings                                                   |
-|-------|----------------------------------------------------------|------------------------------------------------------------|
-| Light | <img src="art/screenshots/detail.png" width="250">       | <img src="art/screenshots/settings.png" width="250">       |
-| Dark  | <img src="art/screenshots/detail-dark.png" width="250">  | <img src="art/screenshots/settings-dark.png" width="250">  |
 
 ## 🚀 Posts In Medium
 ***
