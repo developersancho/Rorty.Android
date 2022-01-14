@@ -19,7 +19,7 @@ An android app built using Kotlin that consumes [Rick and Morty API](https://ric
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="200">](https://github.com/developersancho/Rorty.Native.Android)
 
-## Environment Setup.
+## Environment Setup
 
 In order to be able to build the application you'll need Android Studio Minimum version Bumblebee (2021.1.1) RC 1
 
@@ -43,7 +43,7 @@ The circles represent different layers of your app. Note that:
 - Easier to test code.
 - Separation of Concern - Different modules have specific responsibilities making it easier for modification and maintenance.
 
-### S.O.L.I.D Principles.
+### S.O.L.I.D Principles
 
 - [__Single Responsibility__](https://en.wikipedia.org/wiki/Single-responsibility_principle): Each software component should have only one reason to change – one responsibility.
 
@@ -75,16 +75,16 @@ Components of data layer include:
 
 - __repository__: Responsible for exposing data to the domain layer.
 
-### 2. Domain.
+### 2. Domain
 This is the core layer of the application. The ```domain``` layer is independent of any other layers thus ] domain business logic can be independent from other layers.This means that changes in other layers will have no effect on domain layer eg.  screen UI (presentation layer) or changing database (data layer) will not result in any code change withing domain layer.
 
 Components of domain layer include:
-- __usecase__: They enclose a single action, like getting data from a database or posting to a service. They use the repositories to resolve the action they are supposed to do. They usually override the operator “invoke”, so they can be called as a function.
+- __usecase__: They enclose a single action, like getting data from a database or posting to a service. They use the repositories to resolve the action they are supposed to do. They usually override the operator ```invoke``` , so they can be called as a function.
 
-### 3. Presentation.
+### 3. Presentation
 The ```app``` layer contains components involved in showing information to the user. The main part of this layer are the views(activity, fragment) and ViewModels.
 
-# Tech Stack.
+# Tech Stacks
 This project uses many of the popular libraries, plugins and tools of the android ecosystem.
 
 - [Jetpack](https://developer.android.com/jetpack)
