@@ -144,7 +144,7 @@ This project uses many of the popular libraries, plugins and tools of the androi
 - [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin.
 
 ## 🚀 Posts In Medium
-***
+[Article](https://developersancho.medium.com/android-modular-clean-architecture-with-rorty-app-5b4b08398492)
 
 ## 🤝 Contributing
 
