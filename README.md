@@ -21,7 +21,7 @@ An android app built using Kotlin that consumes [Rick and Morty API](https://ric
 
 ## Environment Setup
 
-In order to be able to build the application you'll need Android Studio Minimum version ```Bumblebee (2021.1.1) RC 1```
+You require the Android Studio ```Bumblebee (2021.1.1) RC 1``` to be able to build the app.
 
 ## Architecture
 A well planned architecture is extremely important for an app to scale and all architectures have one common goal- to manage complexity of your app. This isn't something to be worried about in smaller apps however it may prove very useful when working on apps with longer development lifecycle and a bigger team.
