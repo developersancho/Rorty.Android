@@ -29,13 +29,14 @@ A well planned architecture is extremely important for an app to scale and all a
 Clean architecture was proposed by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin) in 2012 in the [Clean Code Blog](http://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) and it follow the SOLID principle.
 
 <p align="center"><img src="art/clean_arch.jpeg" alt="Clean Architecture"></p>
-<p align="center"><img src="art/architecture.png" alt="Clean Architecture Diagram"></p>
 
 The circles represent different layers of your app. Note that:
 
 - The center circle is the most abstract, and the outer circle is the most concrete. This is called the [Abstraction Principle](https://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming)). The Abstraction Principle specifies that inner circles should contain business logic, and outer circles should contain implementation details.
 
 - Another principle of Clean Architecture is the [Dependency Inversion](https://en.wikipedia.org/wiki/Dependency_inversion_principle). This rule specifies that each circle can depend only on the nearest inward circle ie. low-level modules do not depend on high-level modules but the other way around.
+
+<p align="center"><img src="art/architecture.png" alt="Clean Architecture Diagram"></p>
 
 ### Why Clean Architecture?
 - Loose coupling between the code - The code can easily be modified without affecting any or a large part of the app's codebase thus easier to scale the application later on.
