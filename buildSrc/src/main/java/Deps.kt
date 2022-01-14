@@ -96,4 +96,5 @@ object Deps {
     const val Coil = "io.coil-kt:coil:${Versions.Coil}"
     const val Timber = "com.jakewharton.timber:timber:${Versions.Timber}"
     const val SecurityCrypto = "androidx.security:security-crypto-ktx:${Versions.SecurityCrypto}"
+    const val TintCrypto = "com.google.crypto.tink:tink-android:1.6.1"
 }
