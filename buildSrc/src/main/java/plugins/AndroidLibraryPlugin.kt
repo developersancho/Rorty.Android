@@ -34,7 +34,7 @@ class AndroidLibraryPlugin: Plugin<Project> {
             multiDexEnabled = true
             vectorDrawables.useSupportLibrary = true
             testInstrumentationRunner = Configs.AndroidJunitRunner
-            consumerProguardFiles("consumer-rules.pro")
+            //consumerProguardFiles("consumer-rules.pro")
         }
 
         compileOptions.apply {

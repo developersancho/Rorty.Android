@@ -1,19 +1,50 @@
-# okhttp
--dontwarn okhttp3.**
-# OkHttp platform used only on JVM and when Conscrypt dependency is available.
--dontwarn okhttp3.internal.platform.ConscryptPlatform
+# Okio
+-dontwarn java.nio.file.*
+-dontwarn org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement
 -dontwarn okio.**
-# JSR 305 annotations are for embedding nullability information.
--dontwarn javax.annotation.**
-# A resource is loaded with a relative path so the package of this class must be preserved.
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
-# Animal Sniffer compileOnly dependency to ensure APIs are compatible with older versions of Java.
--dontwarn org.codehaus.mojo.animal_sniffer.*
+
+# OkHttp
+-keepattributes Signature
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
+
+# Retrofit
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
 
 # crashlytics recommendations
 -keepattributes *Annotation*
 -keepattributes LineNumberTable
 -keep public class * extends java.lang.Exception
 
+
 # project
 -keep class com.developersancho.model.** { *; }
+-keep class com.developersancho.framework.** { *; }
+
+# Preserve all fundamental application classes.
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+
+-keep class * implements androidx.viewbinding.ViewBinding {
+    public static *** bind(android.view.View);
+    public static *** inflate(android.view.LayoutInflater);
+}
+
+-keepclassmembers class ** implements androidx.viewbinding.ViewBinding {
+    public static ** bind(android.view.View);
+
+    public static ** inflate(android.view.LayoutInflater, android.view.ViewGroup, boolean);
+
+    public static ** inflate(android.view.LayoutInflater, android.view.ViewGroup);
+}
